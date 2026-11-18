@@ -9,7 +9,7 @@
 
 // Set these once after creating the GitHub repository.
 // Used only when the page is hosted on *.github.io.
-const GITHUB_OWNER = 'your-github-username';
+const GITHUB_OWNER = 'thisismayuresh';
 const GITHUB_REPO = 'tech-blog';
 
 const SLUG_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
