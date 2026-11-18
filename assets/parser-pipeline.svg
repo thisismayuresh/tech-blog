@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-label="Markdown parsing pipeline diagram">
+  <rect width="720" height="405" fill="#f7f6f3"/>
+  <rect x="40" y="150" width="150" height="90" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="115" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1a1a1a">Markdown</text>
+  <text x="115" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#6b6b6b">source text</text>
+
+  <line x1="195" y1="195" x2="255" y2="195" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="255,195 245,189 245,201" fill="#1a1a1a"/>
+
+  <rect x="260" y="150" width="150" height="90" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="335" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1a1a1a">Block parse</text>
+  <text x="335" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#6b6b6b">lines → blocks</text>
+
+  <line x1="415" y1="195" x2="475" y2="195" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="475,195 465,189 465,201" fill="#1a1a1a"/>
+
+  <rect x="480" y="150" width="150" height="90" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="555" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1a1a1a">Inline pass</text>
+  <text x="555" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#6b6b6b">emphasis, links</text>
+
+  <line x1="555" y1="240" x2="555" y2="290" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="555,290 549,280 561,280" fill="#1a1a1a"/>
+
+  <rect x="480" y="295" width="150" height="70" rx="6" fill="#1a1a1a"/>
+  <text x="555" y="336" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#ffffff">HTML output</text>
+
+  <text x="360" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" fill="#6b6b6b">Two-pass custom parser — no dependencies</text>
+</svg>

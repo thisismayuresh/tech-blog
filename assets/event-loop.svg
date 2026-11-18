@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-label="Event loop diagram with call stack, queue, and loop">
+  <rect width="720" height="405" fill="#f7f6f3"/>
+
+  <text x="360" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" fill="#6b6b6b">The event loop drains queues between ticks</text>
+
+  <rect x="60" y="90" width="160" height="220" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="140" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Call stack</text>
+  <rect x="80" y="140" width="120" height="28" rx="3" fill="#eae8e3" stroke="#cfccc4"/>
+  <text x="140" y="159" text-anchor="middle" font-family="monospace" font-size="12" fill="#1a1a1a">main()</text>
+  <rect x="80" y="176" width="120" height="28" rx="3" fill="#eae8e3" stroke="#cfccc4"/>
+  <text x="140" y="195" text-anchor="middle" font-family="monospace" font-size="12" fill="#1a1a1a">fetch()</text>
+  <rect x="80" y="212" width="120" height="28" rx="3" fill="#1a1a1a"/>
+  <text x="140" y="231" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffffff">handler</text>
+
+  <rect x="280" y="90" width="160" height="100" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="360" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Microtask queue</text>
+  <text x="360" y="155" text-anchor="middle" font-family="monospace" font-size="12" fill="#6b6b6b">promise callbacks</text>
+
+  <rect x="280" y="210" width="160" height="100" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="360" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Task queue</text>
+  <text x="360" y="275" text-anchor="middle" font-family="monospace" font-size="12" fill="#6b6b6b">setTimeout, events</text>
+
+  <circle cx="580" cy="200" r="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="580" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Event</text>
+  <text x="580" y="216" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">loop</text>
+
+  <path d="M 445 140 Q 510 120 530 145" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="530,145 520,138 522,148" fill="#1a1a1a"/>
+
+  <path d="M 445 260 Q 510 280 530 255" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="530,255 520,262 522,252" fill="#1a1a1a"/>
+
+  <path d="M 580 130 Q 580 70 450 70 Q 300 70 220 90" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6 4"/>
+  <polygon points="220,90 230,83 231,93" fill="#1a1a1a"/>
+</svg>

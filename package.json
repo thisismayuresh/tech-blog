@@ -1,0 +1,11 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zero-dependency markdown blog reader",
+  "scripts": {
+    "build": "node scripts/generate-posts-index.js",
+    "start": "node scripts/generate-posts-index.js && node server.js"
+  }
+}
