@@ -1,4 +1,5 @@
-import { fetchPostsList } from './api.js';
+import { fetchPostSlugs, fetchPostBySlug } from './api.js';
+import { extractFrontmatter } from './markdown/frontmatter.js';
 import { normalizeAssetPath } from './asset-path.js';
 import { initThemeToggle } from './theme.js';
 
@@ -22,6 +23,60 @@ function formatDate(dateString) {
     month: 'short',
     day: 'numeric',
   });
+}
+
+function comparePostsByDateDescending(firstPost, secondPost) {
+  if (firstPost.date === secondPost.date) {
+    return 0;
+  }
+  if (firstPost.date === '') {
+    return 1;
+  }
+  if (secondPost.date === '') {
+    return -1;
+  }
+  if (firstPost.date < secondPost.date) {
+    return 1;
+  }
+  return -1;
+}
+
+/**
+ * Loads one markdown file and turns it into card metadata
+ * (slug + frontmatter fields used on the list page).
+ */
+async function loadPostSummary(slug) {
+  const post = await fetchPostBySlug(slug);
+
+  if (post === null) {
+    return null;
+  }
+
+  const { data } = extractFrontmatter(post.markdown);
+
+  return {
+    slug: post.slug,
+    title: data.title || post.slug,
+    date: data.date || '',
+    cover: data.cover || '',
+    description: data.description || '',
+  };
+}
+
+async function fetchAllPostSummaries() {
+  const slugs = await fetchPostSlugs();
+  const summaries = await Promise.all(slugs.map(loadPostSummary));
+  const validSummaries = [];
+
+  for (const summary of summaries) {
+    if (summary !== null) {
+      validSummaries.push(summary);
+    }
+  }
+
+  validSummaries.sort(comparePostsByDateDescending);
+
+  return validSummaries;
 }
 
 function createCoverElement(post) {
@@ -84,7 +139,7 @@ async function renderPostsList() {
   let posts;
 
   try {
-    posts = await fetchPostsList();
+    posts = await fetchAllPostSummaries();
   } catch (error) {
     statusElement.textContent = error.message;
     return;

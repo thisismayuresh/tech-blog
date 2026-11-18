@@ -4,14 +4,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 /**
- * Static file server for local development only.
- * GitHub Pages hosts the same files with no server — this exists so
- * fetch() works in the browser (file:// blocks it). No API routes:
- * the post list is posts-index.json, bodies are posts/*.md.
+ * Local development server.
+ *
+ * GitHub Pages hosts these same static files with no server — this only
+ * exists so fetch() works in the browser (file:// blocks it) and so the
+ * post list can be scanned from disk while you work locally. On Pages
+ * the client lists posts via the GitHub API instead (see js/api.js).
  */
 
 const currentFilePath = fileURLToPath(import.meta.url);
 const projectRoot = path.dirname(currentFilePath);
+const postsDirectory = path.join(projectRoot, 'posts');
 
 const PORT = Number(process.env.PORT) || 3000;
 
@@ -37,6 +40,46 @@ function sendText(response, statusCode, text) {
     'Content-Length': body.length,
   });
   response.end(body);
+}
+
+function sendJson(response, statusCode, payload) {
+  const body = Buffer.from(JSON.stringify(payload), 'utf8');
+  response.writeHead(statusCode, {
+    'Content-Type': 'application/json; charset=utf-8',
+    'Content-Length': body.length,
+  });
+  response.end(body);
+}
+
+/**
+ * Returns post slugs (filenames without .md) by scanning posts/.
+ * Runtime response only — nothing is written to disk.
+ */
+function servePostSlugs(response) {
+  if (!fs.existsSync(postsDirectory)) {
+    sendJson(response, 200, []);
+    return;
+  }
+
+  const fileNames = fs.readdirSync(postsDirectory);
+  const slugs = [];
+
+  for (const fileName of fileNames) {
+    if (!fileName.endsWith('.md')) {
+      continue;
+    }
+
+    const filePath = path.join(postsDirectory, fileName);
+    const fileStats = fs.statSync(filePath);
+
+    if (!fileStats.isFile()) {
+      continue;
+    }
+
+    slugs.push(fileName.slice(0, -'.md'.length));
+  }
+
+  sendJson(response, 200, slugs);
 }
 
 function serveStaticFile(pathname, response) {
@@ -90,6 +133,11 @@ function handleRequest(request, response) {
     pathname = decodeURIComponent(requestUrl.pathname);
   } catch {
     sendText(response, 400, 'Bad request: the address contains invalid characters.');
+    return;
+  }
+
+  if (pathname === '/api/post-slugs') {
+    servePostSlugs(response);
     return;
   }
 
