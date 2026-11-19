@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-label="Evolution from T-shaped to comb-shaped developers with multiple skill pillars">
+  <rect width="720" height="405" fill="#f7f6f3"/>
+
+  <text x="360" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#1a1a1a">From T-Shaped to Comb-Shaped</text>
+  <text x="360" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#6b6b6b">AI-augmented engineers with multiple deep specializations</text>
+
+  <!-- T-shaped developer -->
+  <text x="175" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">T-Shaped</text>
+  <text x="175" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">one deep pillar</text>
+
+  <!-- T: vertical pillar -->
+  <rect x="163" y="160" width="24" height="140" rx="3" fill="#1a1a1a"/>
+  <!-- T: horizontal strip -->
+  <rect x="75" y="280" width="200" height="20" rx="3" fill="#3d3d3d"/>
+
+  <text x="175" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">Deep expertise + broad knowledge</text>
+  <text x="175" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">e.g. Node.js backend</text>
+
+  <!-- Arrow -->
+  <line x1="300" y1="230" x2="380" y2="230" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="380,230 368,223 368,237" fill="#1a1a1a"/>
+  <text x="340" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">evolve</text>
+
+  <!-- Comb-shaped developer -->
+  <text x="540" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Comb-Shaped</text>
+  <text x="540" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">multiple deep pillars</text>
+
+  <!-- Comb: horizontal foundation -->
+  <rect x="420" y="280" width="240" height="20" rx="3" fill="#3d3d3d"/>
+
+  <!-- Comb teeth (pillars), varying heights like a comb -->
+  <rect x="432" y="200" width="20" height="80" rx="3" fill="#1a1a1a"/>
+  <rect x="472" y="168" width="20" height="112" rx="3" fill="#1a1a1a"/>
+  <rect x="512" y="150" width="20" height="130" rx="3" fill="#1a1a1a"/>
+  <rect x="552" y="168" width="20" height="112" rx="3" fill="#1a1a1a"/>
+  <rect x="592" y="186" width="20" height="94" rx="3" fill="#1a1a1a"/>
+  <rect x="632" y="204" width="20" height="76" rx="3" fill="#1a1a1a"/>
+
+  <!-- Pillar labels under teeth -->
+  <text x="442" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6b6b6b">FE</text>
+  <text x="482" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6b6b6b">BE</text>
+  <text x="522" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6b6b6b">DB</text>
+  <text x="562" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6b6b6b">Cloud</text>
+  <text x="602" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6b6b6b">AI</text>
+  <text x="642" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6b6b6b">Ops</text>
+
+  <text x="540" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">Shared foundation · AI fluency · system thinking</text>
+
+  <!-- Subtle accent bar -->
+  <rect x="40" y="378" width="640" height="4" rx="2" fill="#e2e0db"/>
+  <rect x="40" y="378" width="200" height="4" rx="2" fill="#1a1a1a"/>
+</svg>
