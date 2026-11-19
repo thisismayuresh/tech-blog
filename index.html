@@ -25,15 +25,26 @@
     <h1 class="page-heading">Latest posts</h1>
 
     <div class="list-controls">
-      <input
-        type="search"
-        id="search-input"
-        class="search-input"
-        placeholder="Search titles, descriptions, tags…"
-        aria-label="Search posts"
-        autocomplete="off"
-      >
-      <div id="tag-bar" class="tag-bar" role="group" aria-label="Filter by tag"></div>
+      <div class="list-controls-row">
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Search titles, descriptions, tags…"
+          aria-label="Search posts"
+          autocomplete="off"
+        >
+        <label class="tag-select-label" for="tag-select">
+          <span class="visually-hidden">Filter by tag</span>
+          <select id="tag-select" class="tag-select" aria-label="Filter by tag">
+            <option value="">All tags</option>
+          </select>
+        </label>
+      </div>
+      <div id="active-filter" class="active-filter" hidden>
+        <span id="active-filter-text" class="active-filter-text"></span>
+        <button type="button" id="active-filter-clear" class="active-filter-clear" aria-label="Clear tag filter">×</button>
+      </div>
     </div>
 
     <div id="posts-grid" class="posts-grid"></div>

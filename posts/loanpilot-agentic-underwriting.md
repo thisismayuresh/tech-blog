@@ -1,7 +1,7 @@
 ---
 title: LoanPilot: How I Built an Agentic AI Loan Underwriting Platform (and Made It Safe Enough to Trust)
 date: 2026-11-19
-cover: assets/loanpilot-agent-flow.svg
+cover: assets/loanpilot-agentic-cover.jpg
 description: A deep dive into LoanPilot — MCP-enabled LLM underwriting, a 12-rule business engine, Firecracker PDF sandboxes, and the evaluation loop that moved decision accuracy from 74% to 91%.
 tags: ai, agents, fintech, architecture, project
 ---

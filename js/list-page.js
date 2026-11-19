@@ -213,45 +213,51 @@ function collectTagCounts(posts) {
   return counts;
 }
 
-function createTagChip(label, tagValue, count, isActive) {
-  const chip = document.createElement('button');
-  chip.type = 'button';
-  chip.className = isActive ? 'tag-chip tag-chip-active' : 'tag-chip';
-  chip.dataset.tag = tagValue;
-
-  const labelText = document.createElement('span');
-  labelText.textContent = label;
-  chip.appendChild(labelText);
-
-  if (count !== null) {
-    const countElement = document.createElement('span');
-    countElement.className = 'tag-chip-count';
-    countElement.textContent = String(count);
-    chip.appendChild(countElement);
-  }
-
-  return chip;
-}
-
-function renderTagBar() {
-  const tagBar = document.getElementById('tag-bar');
-  tagBar.textContent = '';
-
+function renderTagSelect() {
+  const tagSelect = document.getElementById('tag-select');
   const tagCounts = collectTagCounts(allPosts);
+  const previousValue = tagSelect.value;
 
-  if (tagCounts.size === 0) {
-    return;
-  }
+  tagSelect.textContent = '';
 
-  tagBar.appendChild(createTagChip('All', '', null, activeTag === ''));
+  const allOption = document.createElement('option');
+  allOption.value = '';
+  allOption.textContent = tagCounts.size === 0
+    ? 'All tags'
+    : `All tags (${tagCounts.size})`;
+  tagSelect.appendChild(allOption);
 
   const sortedTags = [...tagCounts.keys()].sort((first, second) =>
     first.localeCompare(second));
 
   for (const tag of sortedTags) {
-    const isActive = tag === activeTag;
-    tagBar.appendChild(createTagChip(tag, tag, tagCounts.get(tag), isActive));
+    const option = document.createElement('option');
+    option.value = tag;
+    option.textContent = `${tag} (${tagCounts.get(tag)})`;
+    tagSelect.appendChild(option);
   }
+
+  tagSelect.value = previousValue !== '' && tagCounts.has(previousValue)
+    ? previousValue
+    : activeTag;
+
+  if (tagSelect.value !== activeTag) {
+    activeTag = tagSelect.value;
+  }
+}
+
+function renderActiveFilter() {
+  const activeFilter = document.getElementById('active-filter');
+  const activeFilterText = document.getElementById('active-filter-text');
+
+  if (activeTag === '') {
+    activeFilter.hidden = true;
+    activeFilterText.textContent = '';
+    return;
+  }
+
+  activeFilterText.textContent = activeTag;
+  activeFilter.hidden = false;
 }
 
 function renderFilteredPosts() {
@@ -275,42 +281,34 @@ function renderFilteredPosts() {
 
 function applyFiltersAndRender() {
   writeFiltersToUrl();
-  renderTagBar();
+  renderTagSelect();
+  renderActiveFilter();
   renderFilteredPosts();
 }
 
 function initListControls() {
   const searchInput = document.getElementById('search-input');
-  const tagBar = document.getElementById('tag-bar');
+  const tagSelect = document.getElementById('tag-select');
+  const activeFilterClear = document.getElementById('active-filter-clear');
 
   searchInput.value = searchQuery;
+  tagSelect.value = activeTag;
 
   searchInput.addEventListener('input', () => {
     searchQuery = searchInput.value;
     applyFiltersAndRender();
   });
 
-  tagBar.addEventListener('click', (event) => {
-    const target = event.target;
-
-    if (!(target instanceof Element)) {
-      return;
-    }
-
-    const chip = target.closest('.tag-chip');
-
-    if (chip === null) {
-      return;
-    }
-
-    const nextTag = chip.dataset.tag;
-
-    if (nextTag === undefined) {
-      return;
-    }
-
-    activeTag = nextTag;
+  tagSelect.addEventListener('change', () => {
+    activeTag = tagSelect.value;
     applyFiltersAndRender();
+  });
+
+  activeFilterClear.addEventListener('click', () => {
+    activeTag = '';
+    tagSelect.value = '';
+    applyFiltersAndRender();
+    searchInput.focus();
   });
 }
 

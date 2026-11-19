@@ -1,7 +1,7 @@
 ---
 title: "The Uncomfortable Truth About Software Development: Is It Still a Lucrative Career If You Don't Love Technology?"
 date: 2026-11-19
-cover: assets/software-development-ai-future.svg
+cover: assets/uncomfortable-truth-cover.jpg
 description: "An unfiltered examination of software development as a career in the age of AI. The economics of programming, declining value of routine coding, changing hiring expectations, and what happens to developers who never really cared about technology."
 tags: software-development, artificial-intelligence, ai, career, programming, future-of-work, software-engineering, tech-industry
 ---

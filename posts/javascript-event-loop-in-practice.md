@@ -1,7 +1,7 @@
 ---
 title: "Node.js Internals: From JavaScript to the Operating System"
 date: 2026-11-19
-cover: assets/nodejs-internals.svg
+cover: assets/nodejs-internals-cover.jpg
 description: "An architectural deep dive into the Node.js runtime: V8, C++, libuv, event-loop internals, native bindings, memory management, networking, streams, concurrency, and the operating system."
 tags: nodejs, javascript, v8, libuv, c++, runtime-internals, event-loop, operating-systems, concurrency
 ---
