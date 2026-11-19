@@ -1,7 +1,7 @@
 ---
 title: "The Frontend Is Becoming a Runtime Decision: Generative UI, A2UI 1.0, and What 2027 Holds for Frontend Developers"
 date: 2026-11-19
-cover: assets/generative-frontend-2026-2027.svg
+cover: assets/frontend-runtime-cover.jpg
 description: "One year after Google's generative UI launch, the idea has a stable open protocol, rival implementations and real production problems. Where things stand in late 2026, what the evidence says about 2027, and what frontend developers should do about it."
 tags: generative-ui, frontend, artificial-intelligence, ai, google, a2ui, mcp-apps, webmcp, web-development, frontend-architecture, design-systems, future-of-work, 2027-predictions
 ---

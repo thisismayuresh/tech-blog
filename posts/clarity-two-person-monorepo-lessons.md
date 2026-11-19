@@ -1,7 +1,7 @@
 ---
 title: "Clarity Moves Mountains: Two People, One Monorepo, 1,000+ Users, and What I Learned Next to a Tech Genius"
 date: 2026-11-19
-cover: assets/two-person-monorepo.svg
+cover: assets/clarity-monorepo-cover.jpg
 description: "What I learned running a multi-tenant SaaS monorepo as one of two engineers: why clarity matters more than any tool, how a cluttered screen costs you more than you think, how to talk to stakeholders, and the backend lessons on queues, caching, payments and uptime."
 tags: monorepo, nestjs, saas, backend-engineering, microservices, multi-tenancy, open-source, software-engineering, career, clarity, stakeholder-communication, productivity, lessons-learned
 ---
