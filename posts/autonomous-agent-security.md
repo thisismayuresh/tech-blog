@@ -1,5 +1,5 @@
 ---
-title: Autonomous AI Agent Security: Architecture, Threats and Interview Questions
+title: Autonomous AI Agent Security: Architecture, Threats and Sandboxing
 date: 2026-11-13
 cover: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1epifIEgsPfMMqGO5f-sBeCsF4p0IBdtUxATss7x7Hw&s=10
 description: Learn how to secure autonomous AI coding agents against malicious dependencies, prompt injection, credential theft, and production attacks using Firecracker microVMs, ephemeral credentials, eBPF, MCP security, and defense-in-depth architecture. Includes real-world scenarios, system design, and CTO interview questions.
