@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-label="kubectl apply request flow through Kubernetes">
+  <rect width="720" height="405" fill="#f7f6f3"/>
+
+  <text x="360" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" fill="#6b6b6b">What happens when you run kubectl apply</text>
+
+  <!-- Step boxes left to right, two rows -->
+  <!-- Row 1 -->
+  <rect x="30" y="70" width="200" height="70" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="45" y="96" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6b6b6b">STEP 1</text>
+  <text x="45" y="118" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">kubectl apply</text>
+
+  <line x1="235" y1="105" x2="275" y2="105" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="275,105 265,99 265,111" fill="#1a1a1a"/>
+
+  <rect x="280" y="70" width="200" height="70" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="295" y="96" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6b6b6b">STEP 2</text>
+  <text x="295" y="118" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">API Server</text>
+
+  <line x1="485" y1="105" x2="525" y2="105" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="525,105 515,99 515,111" fill="#1a1a1a"/>
+
+  <rect x="530" y="70" width="160" height="70" rx="6" fill="#1a1a1a"/>
+  <text x="545" y="96" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#cfccc4">STEP 3</text>
+  <text x="545" y="118" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">etcd stores it</text>
+
+  <!-- Down arrow -->
+  <line x1="610" y1="145" x2="610" y2="185" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="610,185 604,175 616,175" fill="#1a1a1a"/>
+
+  <!-- Row 2 (right to left) -->
+  <rect x="530" y="190" width="160" height="70" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="545" y="216" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6b6b6b">STEP 4</text>
+  <text x="545" y="238" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Scheduler picks</text>
+  <text x="545" y="252" font-family="system-ui, sans-serif" font-size="12" fill="#6b6b6b">a node</text>
+
+  <line x1="525" y1="225" x2="485" y2="225" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="485,225 495,219 495,231" fill="#1a1a1a"/>
+
+  <rect x="280" y="190" width="200" height="70" rx="6" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="295" y="216" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6b6b6b">STEP 5</text>
+  <text x="295" y="238" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">kubelet on node</text>
+  <text x="295" y="252" font-family="system-ui, sans-serif" font-size="12" fill="#6b6b6b">starts the pod</text>
+
+  <line x1="275" y1="225" x2="235" y2="225" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="235,225 245,219 245,231" fill="#1a1a1a"/>
+
+  <rect x="30" y="190" width="200" height="70" rx="6" fill="#3d3d3d"/>
+  <text x="45" y="216" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#cfccc4">STEP 6</text>
+  <text x="45" y="238" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Pod is running</text>
+
+  <!-- Reconciliation note -->
+  <rect x="30" y="290" width="660" height="80" rx="6" fill="#f0efeb" stroke="#cfccc4"/>
+  <text x="50" y="320" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">The loop never stops</text>
+  <text x="50" y="344" font-family="Georgia, serif" font-size="13" fill="#4a4a4a">Controllers keep comparing “what is” with “what should be” — if a pod dies,</text>
+  <text x="50" y="362" font-family="Georgia, serif" font-size="13" fill="#4a4a4a">they notice and create a replacement. That’s reconciliation.</text>
+</svg>
