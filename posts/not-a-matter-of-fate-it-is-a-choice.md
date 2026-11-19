@@ -1,6 +1,6 @@
 ---
 title: "Can You Escape the Unknown-Company Tag? A Career Playbook for a 2.8 YOE Software Engineer"
-date: 2026-11-19
+date: 2026-10-19
 cover: "assets/clarity-monorepo-cover.jpg"
 description: "An in-depth guide for developers from lesser-known companies who want to move into product companies, GCCs and established engineering organisations. Covers Indian hiring trends, referrals, ATS rejections, Workday, resumes, Node.js backend skills, interviews and career strategy."
 tags:
