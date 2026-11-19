@@ -1,6 +1,7 @@
 ---
 title: "One Address, Many Places: GeoDNS, Unicast and Anycast Explained"
 date: 2026-11-19
+cover: assets/geodns.jpeg
 description: How traffic finds the right server worldwide — GeoDNS, unicast, anycast, and the latency math behind putting services closer to users.
 tags: networking, dns, system-design
 ---
