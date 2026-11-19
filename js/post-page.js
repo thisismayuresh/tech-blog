@@ -1,7 +1,9 @@
 import { fetchPostBySlug } from './api.js';
-import { extractFrontmatter } from './markdown/frontmatter.js';
+import { extractFrontmatter, parseTagList } from './markdown/frontmatter.js';
 import { renderMarkdown } from './markdown/markdown-parser.js';
 import { initThemeToggle } from './theme.js';
+import { initHeaderScrollState } from './header-scroll.js';
+import { ensureMarkdownIt, ensureMermaid } from './vendor-loader.js';
 
 function getSlugFromUrl() {
   const urlParameters = new URLSearchParams(window.location.search);
@@ -36,7 +38,30 @@ function renderMessage(messageText) {
   contentElement.appendChild(messageParagraph);
 }
 
-function renderPost(post) {
+function getMermaidTheme() {
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'neutral';
+}
+
+async function renderMermaidBlocks(rootElement) {
+  const mermaidBlocks = rootElement.querySelectorAll('pre.mermaid');
+
+  if (mermaidBlocks.length === 0) {
+    return;
+  }
+
+  const mermaid = await ensureMermaid();
+
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: getMermaidTheme(),
+    securityLevel: 'strict',
+    fontFamily: 'system-ui, sans-serif',
+  });
+
+  await mermaid.run({ nodes: mermaidBlocks });
+}
+
+async function renderPost(post) {
   const { data, body } = extractFrontmatter(post.markdown);
   const contentElement = document.getElementById('post-content');
   contentElement.textContent = '';
@@ -50,18 +75,44 @@ function renderPost(post) {
   titleElement.textContent = title;
   contentElement.appendChild(titleElement);
 
+  const metaElement = document.createElement('div');
+  metaElement.className = 'post-meta';
+
   if (data.date) {
     const dateElement = document.createElement('time');
     dateElement.className = 'post-date';
     dateElement.dateTime = data.date;
     dateElement.textContent = formatDate(data.date);
-    contentElement.appendChild(dateElement);
+    metaElement.appendChild(dateElement);
   }
+
+  const tags = parseTagList(data.tags);
+
+  if (tags.length > 0) {
+    const tagsElement = document.createElement('div');
+    tagsElement.className = 'post-tags';
+
+    for (const tag of tags) {
+      const tagLink = document.createElement('a');
+      tagLink.className = 'post-tag';
+      tagLink.href = `index.html?tag=${encodeURIComponent(tag)}`;
+      tagLink.textContent = tag;
+      tagsElement.appendChild(tagLink);
+    }
+
+    metaElement.appendChild(tagsElement);
+  }
+
+  contentElement.appendChild(metaElement);
+
+  await ensureMarkdownIt();
 
   const bodyWrapper = document.createElement('div');
   bodyWrapper.className = 'post-body';
   bodyWrapper.innerHTML = renderMarkdown(body);
   contentElement.appendChild(bodyWrapper);
+
+  await renderMermaidBlocks(bodyWrapper);
 }
 
 async function loadPost() {
@@ -86,7 +137,11 @@ async function loadPost() {
     return;
   }
 
-  renderPost(post);
+  try {
+    await renderPost(post);
+  } catch (error) {
+    renderMessage(error.message);
+  }
 }
 
 function copyCodeFromButton(button) {
@@ -130,4 +185,5 @@ document.addEventListener('click', (event) => {
 });
 
 initThemeToggle();
+initHeaderScrollState();
 loadPost();

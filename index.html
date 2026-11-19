@@ -23,6 +23,19 @@
 
   <main class="list-page">
     <h1 class="page-heading">Latest posts</h1>
+
+    <div class="list-controls">
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search titles, descriptions, tags…"
+        aria-label="Search posts"
+        autocomplete="off"
+      >
+      <div id="tag-bar" class="tag-bar" role="group" aria-label="Filter by tag"></div>
+    </div>
+
     <div id="posts-grid" class="posts-grid"></div>
     <p id="list-status" class="list-status" role="status"></p>
   </main>

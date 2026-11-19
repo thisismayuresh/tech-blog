@@ -44,3 +44,26 @@ export function extractFrontmatter(markdownText) {
 
   return { data, body };
 }
+
+/**
+ * Turns a comma-separated frontmatter value ("kubernetes, devops")
+ * into a lowercase tag list with empties removed.
+ */
+export function parseTagList(rawValue) {
+  if (typeof rawValue !== 'string' || rawValue.trim() === '') {
+    return [];
+  }
+
+  const tags = [];
+  const parts = rawValue.split(',');
+
+  for (const part of parts) {
+    const tag = part.trim().toLowerCase();
+
+    if (tag !== '' && !tags.includes(tag)) {
+      tags.push(tag);
+    }
+  }
+
+  return tags;
+}

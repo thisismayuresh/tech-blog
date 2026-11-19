@@ -3,6 +3,7 @@ title: Building a Custom Markdown Parser
 date: 2026-11-18
 cover: assets/parser-pipeline.svg
 description: How a two-pass parser turns plain text into HTML without any external libraries.
+tags: javascript, markdown, parser
 ---
 
 # Why build your own?

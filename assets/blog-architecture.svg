@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-label="Tech blog architecture: markdown posts to parser to HTML pages">
+  <rect width="720" height="405" fill="#f7f6f3"/>
+
+  <text x="360" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" fill="#6b6b6b">Zero dependencies: markdown in, HTML out, in the browser</text>
+
+  <!-- Posts -->
+  <rect x="40" y="70" width="160" height="260" rx="8" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <rect x="40" y="70" width="160" height="36" rx="8" fill="#1a1a1a"/>
+  <rect x="40" y="94" width="160" height="12" fill="#1a1a1a"/>
+  <text x="120" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">posts/</text>
+
+  <rect x="55" y="122" width="130" height="36" rx="4" fill="#f0efeb" stroke="#cfccc4"/>
+  <text x="120" y="144" text-anchor="middle" font-family="monospace" font-size="11" fill="#1a1a1a">*.md + frontmatter</text>
+
+  <rect x="55" y="168" width="130" height="36" rx="4" fill="#f0efeb" stroke="#cfccc4"/>
+  <text x="120" y="190" text-anchor="middle" font-family="monospace" font-size="11" fill="#1a1a1a">assets/*.svg</text>
+
+  <rect x="55" y="214" width="130" height="36" rx="4" fill="#f0efeb" stroke="#cfccc4"/>
+  <text x="120" y="236" text-anchor="middle" font-family="monospace" font-size="11" fill="#1a1a1a">git push</text>
+
+  <text x="120" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">no build step</text>
+  <text x="120" y="298" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">no npm packages</text>
+
+  <!-- Arrow 1 -->
+  <line x1="205" y1="200" x2="245" y2="200" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="245,200 235,194 235,206" fill="#1a1a1a"/>
+
+  <!-- API / fetch layer -->
+  <rect x="250" y="130" width="150" height="140" rx="8" fill="#3d3d3d"/>
+  <text x="325" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#ffffff">js/api.js</text>
+  <text x="325" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#e8e6e1">local: scan posts/</text>
+  <text x="325" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#e8e6e1">pages: GitHub API</text>
+  <text x="325" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#cfccc4">bodies: relative .md</text>
+
+  <!-- Arrow 2 -->
+  <line x1="405" y1="200" x2="445" y2="200" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="445,200 435,194 435,206" fill="#1a1a1a"/>
+
+  <!-- Parser -->
+  <rect x="450" y="130" width="150" height="140" rx="8" fill="#ffffff" stroke="#cfccc4" stroke-width="2"/>
+  <text x="525" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Custom parser</text>
+  <text x="525" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">1. frontmatter</text>
+  <text x="525" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">2. blocks</text>
+  <text x="525" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b6b6b">3. inline + highlight</text>
+
+  <!-- Arrow 3 -->
+  <line x1="605" y1="200" x2="640" y2="200" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="640,200 630,194 630,206" fill="#1a1a1a"/>
+
+  <!-- Output -->
+  <rect x="645" y="155" width="55" height="90" rx="6" fill="#1a1a1a"/>
+  <text x="672" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#ffffff">HTML</text>
+  <text x="672" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#cfccc4">in DOM</text>
+
+  <!-- Bottom note -->
+  <rect x="40" y="350" width="660" height="36" rx="6" fill="#f0efeb" stroke="#cfccc4"/>
+  <text x="370" y="373" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#4a4a4a">Deploy target: GitHub Pages — static files, no server, no node_modules on the host</text>
+</svg>

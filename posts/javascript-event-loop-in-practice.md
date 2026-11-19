@@ -3,6 +3,7 @@ title: JavaScript Event Loop in Practice
 date: 2026-11-10
 cover: assets/event-loop.svg
 description: A practical walkthrough of call stacks, microtasks, and task queues.
+tags: javascript, async, event-loop
 ---
 
 # The short version

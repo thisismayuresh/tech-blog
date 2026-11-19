@@ -35,9 +35,7 @@ async function fetchSlugsFromLocalServer() {
 
 async function fetchSlugsFromGitHubApi() {
   const apiUrl =
-    //`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/posts`;
-    'https://api.github.com/repos/thisismayuresh/tech-blog/contents/posts'
-
+    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/posts`;
   const response = await fetch(apiUrl, {
     headers: { Accept: 'application/vnd.github+json' },
   });
