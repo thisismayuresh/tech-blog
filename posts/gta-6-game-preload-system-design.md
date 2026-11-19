@@ -1,6 +1,6 @@
 ---
 title: Game Preload System Design: Encryption, DRM, CDNs and Interview Questions
-date: 2026-11-19
+date: 2026-11-09
 cover: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqu4ZKFuzl6FmfSAI0syFeYhlnK-_iiSiUEBB9AKCqrQ&s
 description: Learn how AAA games like GTA VI let you download 200+ GB days before launch without letting you play, using encrypted preloads, DRM, trusted time, key management, and CDN architecture. Includes the Forza Horizon 6 leak as a case study, bandwidth math, system design diagrams, and backend interview questions.
 tags: gaming, system-design, security

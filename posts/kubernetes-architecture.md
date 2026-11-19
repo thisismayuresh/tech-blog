@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Architecture Explained Properly (Why It Exists, How It Thinks, What Runs Where)
-date: 2026-11-19
+date: 2026-10-19
 cover: assets/k8s-control-plane.svg
 description: A long, plain-English tour of Kubernetes — the pain that created it, the four control-plane pieces, nodes and pods, the full request flow, and when you should (and should not) use it.
 tags: kubernetes, architecture, devops

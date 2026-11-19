@@ -1,6 +1,6 @@
 ---
 title: How I Built a Zero-Dependency Markdown Blog (and Why It Is Deliberately Boring)
-date: 2026-11-19
+date: 2026-10-08
 cover: assets/blog-architecture.svg
 description: The full story behind this site — custom markdown parser, dual-mode post loading, no-flash dark mode, GitHub Pages without a build step, and the decisions that kept it small.
 tags: javascript, architecture, markdown, project

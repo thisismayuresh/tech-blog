@@ -1,6 +1,6 @@
 ---
 title: Writing Code Is the Easy Part: Google's Monorepo, Planet-Scale Databases and the Real Job of an Engineer
-date: 2026-11-19
+date: 2026-10-30
 cover: assets/google-henderson-hub-nevada-usa-c310826-r-6.webp
 description: Why writing code was never the hard part of software engineering. A deep dive into Google's 86 TB monorepo (Piper, CitC, Bazel, Rosie), Spanner's atomic-clock-powered planet-scale database, Borg, and why Google builds its own infrastructure, plus what Google engineers earn in India and what that money is really paying for.
 tags: system-design, google, databases, career

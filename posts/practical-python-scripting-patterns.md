@@ -1,6 +1,6 @@
 ---
 title: Practical Python Scripting Patterns
-date: 2026-11-03
+date: 2026-08-14
 cover: assets/python-tooling.svg
 description: Small, explicit patterns for scripts you have to debug six months later.
 tags: python, scripting
