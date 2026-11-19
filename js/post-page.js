@@ -31,7 +31,10 @@ function formatDate(dateString) {
 function renderMessage(messageText) {
   const contentElement = document.getElementById('post-content');
   contentElement.textContent = '';
+  contentElement.classList.remove('post-loading');
   contentElement.classList.add('post-message');
+  contentElement.removeAttribute('role');
+  contentElement.removeAttribute('aria-live');
 
   const messageParagraph = document.createElement('p');
   messageParagraph.textContent = messageText;
@@ -66,6 +69,8 @@ async function renderPost(post) {
   const contentElement = document.getElementById('post-content');
   contentElement.textContent = '';
   contentElement.classList.remove('post-loading', 'post-message');
+  contentElement.removeAttribute('role');
+  contentElement.removeAttribute('aria-live');
 
   const title = data.title || post.slug;
   document.title = `${title} — Tech Blog`;

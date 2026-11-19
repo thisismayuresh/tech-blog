@@ -263,6 +263,12 @@ function renderActiveFilter() {
 function renderFilteredPosts() {
   const gridElement = document.getElementById('posts-grid');
   const statusElement = document.getElementById('list-status');
+  const loadingElement = document.getElementById('list-loading');
+
+  if (loadingElement !== null) {
+    loadingElement.remove();
+  }
+
   gridElement.textContent = '';
 
   const visiblePosts = allPosts.filter(postMatchesFilters);
@@ -312,15 +318,26 @@ function initListControls() {
   });
 }
 
+function hideListLoading() {
+  const loadingElement = document.getElementById('list-loading');
+
+  if (loadingElement !== null) {
+    loadingElement.remove();
+  }
+}
+
 async function renderPostsList() {
   const statusElement = document.getElementById('list-status');
 
   try {
     allPosts = await fetchAllPostSummaries();
   } catch (error) {
+    hideListLoading();
     statusElement.textContent = error.message;
     return;
   }
+
+  hideListLoading();
 
   if (allPosts.length === 0) {
     statusElement.textContent =
